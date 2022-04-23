@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Header</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            /* height:400px; */
+            border: 2px solid red;
+            padding: 5px;
+        }
+
+        #content {
+            height: 350px;
+            border-width: 2px 2px 0px 2px;
+            border-color: green;
+            border-style: solid;
+            text-align: center;
+            color: white;
+        }
+        #content h1{
+            font-size:60px;
+            width: 100%;
+            align-self: center;
+        }
+
+        #content p{
+            padding:10px 20px;
+            font-size:40px;
+        }
+
+        .btn__group {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn__group div {
+            padding: 10px 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+            cursor: pointer;
+            margin: 0 3px;
+            background-color: #ccc;
+            transition: 0.4s ease-in-out;
+        }
+
+        .btn__group div:hover {
+            background-color: red;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div id="content">
+            <h1 id="place">hello satyam</h1>
+            <p id="placeDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae modi doloribus asperiores reiciendis porro ratione fuga sed! Sunt delectus commodi odit velit doloribus corrupti totam illum aspernatur. Distinctio, repellat pariatur!</p>
+
+        </div>
+
+        <div class="btn__group">
+            <div onclick="myFunction(event,'London')">London</div>
+            <div onclick="myFunction(event,'Paris')">Paris</div>
+            <div onclick="myFunction(event,'NewYork')">New York</div>
+            <div onclick="myFunction(event,'Tokyo')">Tokyo</div>
+        </div>
+
+        <script>
+            const items = {
+                'London': { 'color': 'red', 'Desc': "London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times. At its centre stand the imposing Houses of Parliament, the iconic 'Big Ben' clock tower and Westminster Abbey, site of British monarch coronations. Across the Thames River, the London Eye observation wheel provides panoramic views of the South Bank cultural complex, and the entire city." },
+                'Paris': { 'color': 'blue', 'Desc': "Also known as the Latin Quarter, the 5th arrondissement is home to the Sorbonne university and student-filled cafes. It's also known for its bookshops, including the famed Shakespeare & Company. Family-friendly attractions include the Jardin des Plantes botanical gardens and the National Museum of Natural History. The stately Panthéon building holds the remains of notables like Voltaire and Marie Curie." },
+                'NewYork': { 'color': 'green', 'Desc': "New York City comprises 5 boroughs sitting where the Hudson River meets the Atlantic Ocean. At its core is Manhattan, a densely populated borough thats among the world's major commercial, financial and cultural centers. Its iconic sites include skyscrapers such as the Empire State Building and sprawling Central Park. Broadway theater is staged in neon-lit Times Square" },
+                'Tokyo':{'color':'yellow','Desc':'Special wards are a special form of municipalities in Japan under the 1947 Local Autonomy Law. They are city-level wards: primary subdivisions of a prefecture with municipal autonomy largely comparable to other forms of municipalities.'}
+            }
+
+            function myFunction(event,place) {
+                let value  
+            }
+
+        </script>
+    </div>
+
+</body>
+
+</html>

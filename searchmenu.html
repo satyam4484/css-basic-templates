@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Menu</title>
+
+    <style>
+        #mysearch {
+            width: 80%;
+            margin: auto;
+            font-size: 18px;
+            padding: 11px;
+            border: 1px solid #ddd;
+        }
+
+        #myMenu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #myMenu li a {
+            background-color: #ccc;
+            width: 80%;
+            padding: 12px;
+            text-decoration: none;
+            color: black;
+            display: block;
+            
+        }
+
+        #myMenu li a:hover {
+            background-color: #eee;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <input type="text" placeholder="Search.." title="Type in a category" id="mysearch">
+    <ul id="myMenu">
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">CSS</a></li>
+        <li><a href="#">JavaScript</a></li>
+        <li><a href="#">PHP</a></li>
+        <li><a href="#">Python</a></li>
+        <li><a href="#">jQuery</a></li>
+        <li><a href="#">SQL</a></li>
+        <li><a href="#">Bootstrap</a></li>
+        <li><a href="#">Node.js</a></li>
+    </ul>
+
+
+    <script>
+        let SearchItem = document.getElementById("mysearch");
+        SearchItem.addEventListener("keyup", function () {
+            let filtervalue = SearchItem.value.toUpperCase();    // get the search value
+            let items =document.getElementById("myMenu").getElementsByTagName("li");   // get all list items 
+
+            for(let i=0;i<items.length;i++)  {
+                let value = items[i].getElementsByTagName("a")[0];
+                if(value.innerHTML.toUpperCase().indexOf(filtervalue) > -1) {
+                    value.style.display="";
+                }else{
+                    value.style.display="none";
+                }
+            }
+
+            // functon for adding click event on particular value and add it to search bar 
+            for(let i=0;i<items.length;i++) {
+                let value = items[i].getElementsByTagName("a")[0];
+                value.addEventListener("click",function() {
+                    
+                    SearchItem.value = value.innerHTML;
+                })
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

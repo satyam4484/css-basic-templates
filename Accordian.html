@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordian</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .accordian__button {
+            width: 100%;
+            cursor: pointer;
+            text-align: left;
+            background-color: #eee;
+            border: none;
+            transition: 0.4s;
+            padding: 18px;
+            margin: 2px 0px;
+
+        }
+
+        .accordian__button:after {
+            font-size: 20px;
+            content: '\2193';
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after{
+            content: "\005E";
+        }
+
+        .active,
+        .accordian__button:hover {
+            background-color: #ccc;
+        }
+
+        .accordian__item {
+            padding: 18px;
+            font-size: 20px;
+            display: none;
+            /* max-height: 0; */
+            transition: 0.4s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="accordian__button">Section 1 </button>
+    <div class="accordian__item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur tempora veniam eos natus veritatis? Sunt,
+        enim! Explicabo accusamus autem laboriosam distinctio inventore illo velit consequuntur perferendis adipisci,
+        totam mollitia facere!
+    </div>
+    <button class="accordian__button">Section 2</button>
+    <div class="accordian__item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur tempora veniam eos natus veritatis? Sunt,
+        enim! Explicabo accusamus autem laboriosam distinctio inventore illo velit consequuntur perferendis adipisci,
+        totam mollitia facere!
+    </div>
+    <button class="accordian__button">Section 3</button>
+    <div class="accordian__item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur tempora veniam eos natus veritatis? Sunt,
+        enim! Explicabo accusamus autem laboriosam distinctio inventore illo velit consequuntur perferendis adipisci,
+        totam mollitia facere!
+    </div>
+
+    <script>
+        let accordian = document.getElementsByClassName("accordian__button");
+
+        // traverse through each node elements
+        for (let i = 0; i < accordian.length; i++) {
+            accordian[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                let panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
