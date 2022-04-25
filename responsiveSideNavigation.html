@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>responsive navigation</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        .navbar{
+            width: 20%;
+            float:left;
+            height: 100vh;
+            background-color: #ccc;
+            position: relative;
+            transition: 0.4s ease-in;
+            overflow: auto;
+        }
+        .navbar a{
+            display: block;
+            text-decoration: none;
+            padding:10px 30px;
+            text-align: center;
+            font-size: 30px;
+            transition: 0.4s ease-in;
+        }
+        .navbar a:hover{
+            background-color: aqua;
+            color: black;
+        }
+        .navbar a:first-child{display: none;}
+        .content{
+            padding: 20px;
+            text-align: center;
+            margin: 0px 20px;
+        }
+
+        @media screen and (max-width:720px){
+            .navbar{
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            
+            .navbar a{
+                float: left;
+                padding: 10px 15px;
+            }
+            .content{
+                margin-left:0;
+                
+            }
+        }
+        @media screen and (max-width:430px) {
+            .navbar{
+                width: 100%;
+            }
+            .navbar a{
+                display: none;
+                float: none;
+            }
+            .navbar a:first-child{
+                display: block;
+                text-align: end;
+                font-size:40px;
+                padding:10px 20px; 
+            }
+            .responsive a{
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar" id="nav">
+        <a href="#" id="opennav">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">News</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+    </div>
+    <div class="content">
+        <h1>Responsive Sidebar example</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur fugit minus doloribus error, veniam architecto? Exercitationem non laudantium sit! Debitis, assumenda sapiente? Nihil laboriosam, placeat molestiae esse dolorem adipisci odit hic tempora! Praesentium nemo nobis autem enim error doloribus illum earum voluptate iusto optio, distinctio cupiditate ad laborum. Facere, dolores.
+
+        </p>
+        <h3>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur accusamus, dolor quae ipsam aspernatur dolore ullam quod eius assumenda exercitationem.
+        </h3>
+    </div>
+
+    <script>
+        document.getElementById("opennav").addEventListener("click",function() {
+            const mynav = document.getElementById("nav");
+            if(mynav.classList.contains("responsive")) {
+                mynav.classList.remove("responsive");
+            }else{
+                 mynav.className+=" responsive";
+            }
+        })
+    </script>
+</body>
+</html>
