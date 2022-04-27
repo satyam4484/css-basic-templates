@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascading Dropdown</title>
+    <style>
+        *{
+            margin: 0;
+            scroll-behavior: smooth;
+            padding:0;
+        }
+        .container{
+            width: 80vw;
+            margin: 100px auto;
+            border:2px solid red;
+        }
+        .form{
+            padding: 20px;
+            overflow: auto;
+        }
+        
+        
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <form class="form" id="myform">
+            subjects : <select name="subject" id="subjects">
+                <option value="" selected="selected">Select Subject</option>
+                
+            </select>
+
+            <br><br>
+            Topics: <select name="topics" id="topics">
+                <option value="" selected="selected">Select Topics</option>
+            </select>
+            <br><br>
+            Chapter: <select name="chapters" id="chapters">
+                <option value="" selected="selected" >Select chapter</option>
+            </select>
+        </form>
+    </div>
+
+    <script>
+        let subjectObject = {
+            "Frontend":{
+                "Html":["Links","Images","Tables","Lists"],
+                "Css":["Box-sizing","Padding","Flex-box","Css Grid"],
+                "Javascript":["Operators","functions","Promises","Dom"]
+            },
+            "Backend":{
+                "Django":["urls","views","templates","models"],
+                "sql":["Insert","Update","Delete","Alter"]
+            }
+        }
+
+        window.onload = function() {
+            let subjects = document.getElementById("subjects");
+            let topics = document.getElementById("topics");
+            let chapter = document.getElementById("chapters");
+
+            for(let x in subjectObject) {
+                subjects.options[subjects.options.length] = new Option(x,x);
+            }
+
+            // onchange on subjects
+            subjects.onchange =function() {
+                chapter.length = 1;
+                
+                topics.length = 1;
+                for(let y in subjectObject[this.value]){
+                    topics.options[topics.options.length] = new Option(y,y);
+                    console.log(topics.options.length);
+                }
+            }
+
+            topics.onchange = function() {
+                chapter.length = 1;
+                let z = subjectObject[subjects.value][this.value];
+                for(let i=0;i<z.length;i++) {
+                    chapter.options[chapter.options.length] = new Option(z[i],z[i]);
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>
